@@ -1,3 +1,15 @@
+## CONTESTO PER CO-PILOT
+Ricordati che sto usando Visual Studio Code installato su Windows 11, vogliamo usare Node.js e PostgreSQL.
+Non propormi soluzioni che contemplano un sistema operativo diverso, o un ambiente di sviluppo diverso, o tecnologie diverse.
+Tutto ciò che non trovi nel seguente elenco non è stato ancora installato:
+### Pacchetti Installati
+### Dependencies
+- **next-auth**: `^4.24.11`
+### DevDependencies
+- **autoprefixer**: `^10.4.21`
+- **postcss**: `^8.5.3`
+- **tailwindcss**: `^4.1.4`
+
 # iFantacalcistici - Appunti di Sviluppo
 
 ## Obiettivo del Progetto
@@ -86,6 +98,4 @@ L'obiettivo a breve termine è quello di creare un box per l'autenticazione al s
   - Punto 1: Installazione e Configurazione di PostgreSQL.
 
 ## Errori Riscontrati
-
-
-## Passaggi Futuri
+*(Nessuno al momento)*
