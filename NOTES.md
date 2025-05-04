@@ -1,9 +1,10 @@
 ## CONTESTO PER CO-PILOT
-Ricordati che sto usando Visual Studio Code installato su Windows 11, vogliamo usare Node.js e PostgreSQL.
-Non propormi soluzioni che contemplano un sistema operativo diverso, o un ambiente di sviluppo diverso, o tecnologie diverse.
+Ricordati che sto usando Visual Studio Code installato su Windows 11, vogliamo usare Node.js e PostgreSQL (già installato).
+Non propormi soluzioni che contemplano un sistema operativo diverso, o un ambiente di sviluppo diverso, o tecnologie diverse. Non c'è bisogno di riepilogare queste informazioni.
 Tutto ciò che non trovi nel seguente elenco non è stato ancora installato:
 ### Pacchetti Installati
 ### Dependencies
+- **bcrypt**: `^5.x.x` (installato con avvisi su pacchetti deprecati)
 - **next-auth**: `^4.24.11`
 ### DevDependencies
 - **autoprefixer**: `^10.4.21`
@@ -27,13 +28,16 @@ L'obiettivo a breve termine è quello di creare un box per l'autenticazione al s
      ```sql
      CREATE DATABASE ifantacalcistici;
      ```
-   - Creazione della tabella utenti:
+
+   - **Creazione dell'utente `simodium` con privilegi sul database `ifantacalcistici`**:
      ```sql
-     CREATE TABLE users (
-       id SERIAL PRIMARY KEY,
-       email VARCHAR(255) UNIQUE NOT NULL,
-       password VARCHAR(255) NOT NULL
-     );
+     CREATE USER simodium WITH PASSWORD 'tua_password_sicura';
+     GRANT ALL PRIVILEGES ON DATABASE ifantacalcistici TO simodium;
+     ```
+
+   - Test della connessione con l'utente `simodium`:
+     ```bash
+     psql -U simodium -d ifantacalcistici
      ```
 
 2. **Configurazione di Node.js per il Database**:
@@ -42,10 +46,11 @@ L'obiettivo a breve termine è quello di creare un box per l'autenticazione al s
      npm install pg
      ```
    - Configurazione delle variabili d'ambiente:
-     - Creare un file `.env` con:
+     - Creazione del file `.env` con:
        ```env
-       DATABASE_URL=postgresql://username:password@localhost:5432/ifantacalcistici
+       DATABASE_URL=postgresql://simodium:tua_password_sicura@localhost:5432/ifantacalcistici
        ```
+
    - Connessione al database tramite Node.js:
      ```javascript
      const { Pool } = require('pg');
@@ -91,11 +96,16 @@ L'obiettivo a breve termine è quello di creare un box per l'autenticazione al s
      ```
 
 ## Stato Corrente
-- Passaggi completati:
-  - Nessun passaggio completato al momento.
+- **Passaggi completati**:
+  - Installazione di PostgreSQL.
+  - Creazione del database `ifantacalcistici`.
+  - Creazione dell'utente `simodium` e verifica della connessione.
+  - Aggiornamento del file `.env` con le credenziali dell'utente `simodium`.
+  - Creazione della tabella utenti (`CREATE TABLE users`).
+  - Installazione di `bcrypt` (con avvisi su pacchetti deprecati).
 
 - **Prossimo passaggio in programma**:
-  - Punto 1: Installazione e Configurazione di PostgreSQL.
+  - Creazione script Node.js per hash della password.
 
 ## Errori Riscontrati
 *(Nessuno al momento)*
