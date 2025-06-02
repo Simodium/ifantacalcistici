@@ -1,7 +1,4 @@
-## CONTESTO PER CO-PILOT
-Ricordati che sto usando Visual Studio Code installato su Windows 11, vogliamo usare Node.js e PostgreSQL (già installato).
-Non propormi soluzioni che contemplano un sistema operativo diverso, o un ambiente di sviluppo diverso, o tecnologie diverse. Non c'è bisogno di riepilogare queste informazioni.
-Tutto ciò che non trovi nel seguente elenco non è stato ancora installato:
+
 ### Pacchetti Installati
 ### Dependencies
 - **bcrypt**: `^5.x.x` (installato con avvisi su pacchetti deprecati)
@@ -11,7 +8,7 @@ Tutto ciò che non trovi nel seguente elenco non è stato ancora installato:
 - **postcss**: `^8.5.3`
 - **tailwindcss**: `^4.1.4`
 
-# iFantacalcistici - Appunti di Sviluppo
+# iFantacalcistici - APPUNTI DI SVILUPPO
 
 ## Obiettivo del Progetto
 L'obiettivo a lungo termine è creare un sito di fantacalcio fruibile anche da mobile.  
